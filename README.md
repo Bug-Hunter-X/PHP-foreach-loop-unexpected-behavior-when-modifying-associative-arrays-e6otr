@@ -1,0 +1,5 @@
+# PHP foreach loop unexpected behavior when modifying associative arrays
+This repository demonstrates an uncommon and subtle bug in PHP related to modifying associative arrays within a foreach loop.  The issue arises when removing elements from an associative array during iteration.  The standard foreach loop does not maintain the original keys and re-indexes the array, producing unexpected results. This behavior is not immediately obvious and can be a source of hard-to-find bugs.
+
+## Bug Description
+The core problem is that when you remove an element from an associative array using `unset()` inside a `foreach` loop, PHP's internal array handling re-indexes the remaining elements. This re-indexing can cause the loop to skip elements or produce incorrect results if relying on the original keys.
